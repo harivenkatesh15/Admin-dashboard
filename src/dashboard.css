@@ -222,3 +222,18 @@
     width: calc(100% - 200px);
   }
 }
+
+.New-btn{
+    margin-top: 10px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #f39c12;
+  }

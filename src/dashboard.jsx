@@ -1,6 +1,7 @@
 import React, { useState ,useEffect} from "react";
 import "./dashboard.css";
 import { supabase } from "./CreateItem";
+import { CgAddR } from "react-icons/cg";
 
 
 const Dashboard = () => {
@@ -132,6 +133,7 @@ const Dashboard = () => {
           ))}
         </tbody>
       </table>
+      <button className="New-btn" onClick={()=>handleCreate()}>Add New <CgAddR /></button>
     </div>
   );
 };
