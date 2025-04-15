@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./dashboard.css";
+import { supabase } from "./CreateItem";
+
 
 const Dashboard = () => {
   const [products, setProducts] = useState([
