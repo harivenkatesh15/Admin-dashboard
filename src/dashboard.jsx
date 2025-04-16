@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   const [products, setProducts] = useState([
     {
-      id: '',
+      product_id: '',
       name: " ",
       description: " ",
       price_0_5: "",
@@ -44,8 +44,18 @@ const Dashboard = () => {
     alert(`Edit product with ID: ${id}`);
   };
 
-  const handleDelete = (id) => {
-    setProducts(products.filter((product) => product.id !== id));
+  const handleDelete = async (id) => {
+    console.log("Deleting product with ID:", id);
+    const { error } = await supabase
+      .from("products")
+      .delete()
+      .eq("product_id", id);
+  
+    if (error) {
+      console.error("Error deleting product:", error);
+    } else {
+      fetchItems(); 
+    }
   };
 
   const handleView = (id) => {
@@ -95,8 +105,8 @@ const Dashboard = () => {
         </thead>
         <tbody>
           {products.map((product) => (
-            <tr key={product.id}>
-              {/* <td>{product.id}</td> */}
+            <tr key={product.product_id}>
+              {/* <td>{product.product_id}</td> */}
               <td>
                 <div className="product-title">
                   <img
@@ -118,13 +128,13 @@ const Dashboard = () => {
               <td>{formatCurrency(product.price_100_above)}</td>
               <td>
                 <div className="action-icons">
-                  <button onClick={() => handleEdit(product.id)} className="edit-btn">
+                  <button onClick={() => handleEdit(product.product_id)} className="edit-btn">
                     ✏️
                   </button>
-                  <button onClick={() => handleDelete(product.id)} className="delete-btn">
+                  <button onClick={() => handleDelete(product.product_id)} className="delete-btn">
                     🗑️
                   </button>
-                  <button onClick={() => handleView(product.id)} className="view-btn">
+                  <button onClick={() => handleView(product.product_id)} className="view-btn">
                     👁️
                   </button>
                 </div>
