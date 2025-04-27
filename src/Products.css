@@ -1,0 +1,323 @@
+/* General Styles */
+.dashboard-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Light background for the main content */
+  }
+  
+  .dashboard-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333; /* Neutral text color */
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #2c2c2c; /* Black sidebar */
+    color: white;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  
+  .sidebar h2 {
+    color: #f39c12; /* Orange heading */
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 15px 20px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar ul li:hover {
+    background-color: #f39c12; /* Orange hover effect */
+    color: black;
+  }
+  
+  /* Main Content */
+  .main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+    background-color: #f4f4f9;
+    min-height: 100vh;
+    overflow-x: auto;
+  }
+  
+  /* Stat Cards */
+  .stat-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    flex: 1 1 calc(25% - 20px);
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .card.green {
+    background: linear-gradient(to right, #f39c12, #f1c40f); /* Orange gradient */
+  }
+  
+  .card.pink {
+    background: linear-gradient(to right, #e74c3c, #f39c12); /* Red to orange */
+  }
+  
+  .icon {
+    font-size: 32px;
+  }
+  
+  /* Table Styles */
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-table th,
+  .product-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .product-table th {
+    background-color: #f39c12; /* Orange table header */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .product-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .product-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+  }
+  
+  /* Buttons */
+  .action-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn,
+  .delete-btn,
+  .view-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .edit-btn {
+    background-color: #f39c12; /* Orange */
+    color: white;
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c; /* Red */
+    color: white;
+  }
+  
+  .view-btn {
+    background-color: #2c3e50; /* Black */
+    color: white;
+  }
+  
+  .edit-btn:hover {
+    background-color: #d35400; /* Darker orange */
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b; /* Darker red */
+  }
+  
+  .view-btn:hover {
+    background-color: #34495e; /* Darker black */
+  }
+  
+  /* Section Title */
+  .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Hamburger Icon */
+  .toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background-color: #f39c12; /* Orange */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 18px;
+  }
+  
+  .toggle-btn:hover {
+    background-color: #d35400; /* Darker orange */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .stat-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  
+    .sidebar {
+      width: 200px;
+    }
+  
+    .main-content {
+      margin-left: 200px;
+      width: calc(100% - 200px);
+    }
+  }
+  
+  .New-btn{
+      margin-top: 10px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+      color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      background-color: #f39c12;
+  }
+  
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Card */
+  .modal-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-card h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-row label {
+    font-weight: bold;
+    flex: 1;
+  }
+  
+  .modal-row input {
+    flex: 2;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .save-btn,
+  .close-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .save-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .close-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .save-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .close-btn:hover {
+    background-color: #d32f2f;
+  }
