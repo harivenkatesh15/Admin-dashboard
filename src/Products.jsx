@@ -4,10 +4,10 @@ import React, { useState, useEffect } from "react";
 import "./Products.css";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);//used for fetching products from supabase
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false);  // State for view modal visibility
   const [selectedProduct, setSelectedProduct] = useState(null); // State for the selected product
   const [isEditModalOpen, setIsEditModalOpen] = useState(false); // State for edit modal visibility
-  const [isViewModalOpen, setIsViewModalOpen] = useState(false); // State for view modal visibility
   const [editedProduct, setEditedProduct] = useState({}); // State for editable product fields
 
   useEffect(() => {
@@ -33,11 +33,12 @@ const Products = () => {
     setEditedProduct({
       product_name: "",
       description: "",
-      price_0_5: "",
-      price_6_25: "",
-      price_26_50: "",
-      price_51_100: "",
-      price_100_above: "",
+      image_url: "",
+      price_0_5: 0,
+      price_6_25: 0,
+      price_26_50: 0,
+      price_51_100: 0,
+      price_100_above: 0,
     }); // Initialize empty fields for a new product
     setIsEditModalOpen(true); // Open the edit modal
   };
@@ -68,7 +69,7 @@ const Products = () => {
       }
     } else {
       // Add new product
-      const { error } = await supabase.from("products").insert([editedProduct]);
+      const { error } = await supabase.from("products").insert({title : editedProduct.product_name, description: editedProduct.description, image_url: editedProduct.image_url, price_0_5: editedProduct.price_0_5, price_6_25: editedProduct.price_6_25, price_26_50: editedProduct.price_26_50, price_51_100: editedProduct.price_51_100, price_100_above: editedProduct.price_100_above});
 
       if (error) {
         console.error("Error adding product:", error);
@@ -126,7 +127,10 @@ const Products = () => {
         <tbody>
           {products.map((product) => (
             <tr key={product.product_id}>
-              <td>{product.product_name}</td>
+              <td className="product-title">
+                <img className="product-img" src={product.image_url} alt={product.product_name} />
+                {product.product_name}
+              </td>
               <td>{product.description}</td>
               <td>{formatCurrency(product.price_0_5)}</td>
               <td>{formatCurrency(product.price_6_25)}</td>
@@ -175,6 +179,15 @@ const Products = () => {
                   type="text"
                   name="description"
                   value={editedProduct.description || ""}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="modal-row">
+                <label>Image URL:</label>
+                <input
+                  type="text"
+                  name="image_url"
+                  value={editedProduct.image_url || ""}
                   onChange={handleInputChange}
                 />
               </div>
