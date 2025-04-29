@@ -11,8 +11,13 @@ const Orders = () => {
   }, []);
 
   async function fetchOrders() {
-    const { data } = await supabase.from("orders").select("*");
-    setOrders(data);
+    const { data,error } = await supabase.from("orders").select("*");
+    if (error) {
+      console.error("Error fetching orders:", error);
+    } else {
+      console.log("Fetched orders:", data);
+      setOrders(data);
+    }
   }
 
   return (
@@ -27,7 +32,7 @@ const Orders = () => {
             <th>Phone No</th>
             <th>Address</th>
             <th>Price</th>
-            <th>Payment Methos</th>
+            <th>Payment Method</th>
             <th>Order Status</th>
           </tr>
         </thead>
@@ -38,7 +43,9 @@ const Orders = () => {
               <td>{order.full_name}</td>
               <td>{order.phone_number}</td>
               <td>{order.address}</td>
-              <td>{order.total_price}</td>
+              <td>{order.total}</td>
+              <td>{order.payment_method}</td>
+              <td>{order.status}</td>
             </tr>
           ))}
         </tbody>
